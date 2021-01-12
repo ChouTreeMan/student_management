@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a Student</title>
+</head>
+<body>
+    <div align="center">
+        <form method="post" th:action="@{/Admin/addOne}">
+            <table border="1px" cellspacing="0px" >
+                <caption><h3>添加学生基本信息</h3></caption>
+                <tr>
+                    <td>Stu_Id:</td>
+                    <td><input name="stu_id" disabled></td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td>Batch:</td>
+                    <td><input type="text" name="batch"></td>
+                </tr>
+                <tr>
+                    <td>Age:</td>
+                    <td><input type="text" name="age"></td>
+                </tr>
+                <tr>
+                    <td>Date Of Birth:</td>
+                    <td><input type="text" name="DateOfBirth" placeholder="yyyy-MM-dd"></td>
+                </tr>
+                <tr>
+                    <td>Blood Group:</td>
+                    <td><input type="text" name="BloodGroup"></td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td><input type="text" name="address"></td>
+                </tr>
+                <tr>
+                    <td>Contact Number:</td>
+                    <td><input type="text" name="phoneNumber"></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" name="email"></td>
+                </tr>
+            </table>
+            <div align="center">
+                <button type="submit">保存</button>
+                <button type="reset">重置</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

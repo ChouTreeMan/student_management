@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html data-blockbyte-bs-uid="40348" lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>School</title>
+    <link rel="stylesheet" th:href="@{/School_files/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/School_files/Login-Form-Dark.css}">
+    <link rel="stylesheet" th:href="@{/School_files/styles.css}">
+    <style class="blockbyte-bs-style" data-name="content">
+
+    </style>
+</head>
+
+<body>
+<div class="login-dark" style="background: rgb(20,162,212);">
+    <form action="login" method="post" style="background: rgb(247,248,248);">
+        <h2 class="sr-only">Login Form</h2>
+        <div class="illustration"
+             th:style="'background: url('+'/img/school_log1.png'+');background-size: contain;height: 183px;width: 235px;'"></div>
+        <div class="form-group">
+<!--            id-->
+            <label>
+            <input class="form-control" type="text" name="login_id" placeholder="UserName" style="box-shadow: 0 0, 0 0;"></label>
+        </div>
+        <div class="form-group">
+<!--            密码-->
+            <label>
+            <input class="form-control" type="password" name="password" placeholder="Password"></label>
+        </div>
+<!--        这里起名字叫角色，是选择是学生还是Admin-->
+        <div class="role">
+            <div>
+                <input type="radio" id="Admin" name="role" value="admin"><label for="Admin">Admin</label>
+                <input type="radio" id="Student" name="role" value="stu" checked><label for="Student">Student</label>
+            </div>
+        </div>
+<!--        登录按钮    -->
+        <div class="form-group">
+            <button class="btn btn-primary btn-block" name="accountType"
+                    type="submit" th:style="'background:' + 'rgb(20,162,212)'+';'">Log In</button>
+        </div>
+    </form>
+</div>
+<script th:src="@{/School_files/jquery-3.5.1.min.js}"></script>
+<script th:src="@{/School_files/bootstrap.min.js}"></script>
+<script id="bs-live-reload" data-sseport="55425" data-lastchange="1609240057074" th:src="@{/School_files/livereload.js}"></script>
+
+</body>
+</html>

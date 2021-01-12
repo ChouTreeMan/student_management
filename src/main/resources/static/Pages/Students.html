@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Here is Student Page</title>
+</head>
+<body>
+<div align="center">
+    <form method="post" th:action="@{/Stu/editOne}">
+        <table border="1px" cellspacing="0px">
+            <caption><h3>学生个人信息表</h3></caption>
+            <tr>
+                <td>Stu_Id:</td>
+                <td><input name="stu_id" th:value="${studentInfo.stu_id}" disabled></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><input name="name" th:value="${studentInfo.name}" disabled></td>
+            </tr>
+            <tr>
+                <td>Batch:</td>
+                <td><input name="batch" th:value="${studentInfo.batch}" disabled></td>
+            </tr>
+            <tr>
+                <td>Age:</td>
+                <td><input type="text" name="age" th:value="${studentInfo.age}"></td>
+            </tr>
+            <tr>
+                <td>Date Of Birth:</td>
+                <td><input type="text" name="DateOfBirth" th:value="${studentInfo.dateOfBirth}"></td>
+            </tr>
+            <tr>
+                <td>Blood Group:</td>
+                <td><input type="text" name="BloodGroup" th:value="${studentInfo.bloodGroup}"></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><input type="text" name="address" th:value="${studentInfo.address}"></td>
+            </tr>
+            <tr>
+                <td>Contact Number:</td>
+                <td><input type="text" name="phoneNumber" th:value="${studentInfo.phoneNumber}"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" name="email" th:value="${studentInfo.email}"></td>
+            </tr>
+        </table>
+        <div align="center">
+            <button type="submit">保存</button>
+            <button type="reset">重置</button>
+        </div>
+    </form>
+</div>
+<br><br>
+<div align="center">
+    <table border="1px" cellspacing="0px">
+        <caption><h3>请假记录</h3></caption>
+        <tr>
+            <th>Leave Date</th>
+            <th>Reason</th>
+        </tr>
+        <tr th:if="${MyApply!=null}" th:each="Apply:${MyApply}">
+            <td th:text="${Apply.leave_date}"></td>
+            <td th:text="${Apply.reason}"></td>
+        </tr>
+    </table>
+    <a th:href="@{/Stu/getMyLeaves}"><button>显示已提交申请</button></a>
+    <a th:href="@{/Stu/apply}"><button>请假</button></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Here is admin page</title>
+</head>
+<body>
+
+<a th:href="@{/Admin/student_details}"><button>显示所有学生信息</button></a><br>
+<a th:href="@{/Admin/addDetail}"><button>添加学生基本信息</button></a><br>
+<a th:href="@{/Admin/leave_info}"><button>显示所有请假申请情况</button></a>
+
+<br><br>
+<div>
+    <table border="1px"  cellspacing="0px" th:if="${studentList!=null}">
+        <caption><h3>Student Info List</h3></caption>
+        <tr>
+            <th>stu_id</th>
+            <th>name</th>
+            <th>batch</th>
+            <th>age</th>
+            <th>DOB</th>
+            <th>blood group</th>
+            <th>address</th>
+            <th>phone number</th>
+            <th>email</th>
+            <th colspan="2">options</th>
+        </tr>
+
+        <tr th:each="student:${studentList}">
+            <td th:text="${student.stu_id}"></td>
+            <td th:text="${student.name}"></td>
+            <td th:text="${student.batch}"></td>
+            <td th:text="${student.age}"></td>
+            <td th:text="${student.dateOfBirth}"></td>
+            <td th:text="${student.bloodGroup}"></td>
+            <td th:text="${student.address}"></td>
+            <td th:text="${student.phoneNumber}"></td>
+            <td th:text="${student.email}"></td>
+            <td>
+                <a th:href="@{/Admin/forUpdate/{stu_id}( stu_id=${student.stu_id} )}">
+                    <button>Edit</button>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{/Admin/delOne/{stu_id}( stu_id=${student.stu_id}) }">
+                    <button>Delete</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <table border="1px" cellspacing="0px" th:if="${leaveList!=null}">
+        <caption><h3>请假申请次数列表</h3></caption>
+        <tr>
+            <th>Stu_Id</th>
+            <th>Leave Taken</th>
+            <th>Leave Balance</th>
+        </tr>
+        <tr th:each="leave:${leaveList}">
+            <td th:text="${leave.stu_id}"></td>
+            <td th:text="${leave.leave_taken}"></td>
+            <td th:text="${leave.leave_balance}"></td>
+        </tr>
+    </table>
+</div>
+
+
+<br><br>
+<!--<a th:href="@{/Admin/student_details}">获取所有学生信息</a><br>-->
+<!--<a th:href="@{/Admin/addDetail}">添加学生信息</a><br>-->
+<!--<a th:href="@{/Admin/leave_info}">获取所有请假信息</a>-->
+
+</body>
+</html>
