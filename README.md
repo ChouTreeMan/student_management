@@ -7,3 +7,13 @@ a project made by two person and three pieces of wood
 
 
 # 学写代码莫名有种慢慢从死人堆里爬出来的感觉
+
+# 所涉及方面：
+
+1）springboot
+
+2）JpaRepository
+
+3）Thymeleaf
+
+4）jquery
