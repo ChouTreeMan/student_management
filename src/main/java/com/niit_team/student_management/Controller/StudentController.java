@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping("/Stu")
@@ -29,7 +30,8 @@ public class StudentController {
             throw new StuNullPointerException("stuId can not be null");
         }
         int stu_id = (int)req.getSession().getAttribute("stu_id");
-        mv.addObject("studentInfo",studentService.viewDetail(stu_id));
+        StudentInfo studentInfo = studentService.viewDetail(stu_id);
+        mv.addObject("studentInfo",studentInfo);
         return mv;
     }
 
@@ -50,10 +52,12 @@ public class StudentController {
             throw new StuNullPointerException("stuId can not be null");
         }
         int stu_id = (int)req.getSession().getAttribute("stu_id");
-        mv.addObject("MyApply",leaveService.getApplyById(stu_id));
+        System.out.println("in getMyLeave:"+stu_id);
+        List<Apply> applies = leaveService.getApplyById(stu_id);
+        mv.addObject("MyApply",applies);
         return mv;
     }
-    //TODO 提交申请
+
 
     @RequestMapping("/apply")
     public ModelAndView applyPage(HttpServletRequest req){
@@ -66,7 +70,7 @@ public class StudentController {
         mv.addObject("stuId",stu_id);
         return mv;
     }
-
+    //TODO 提交申请
     @PostMapping("/applyForLeave")
     public ModelAndView applyForLeave(Apply apply){
         leaveService.apply(apply);

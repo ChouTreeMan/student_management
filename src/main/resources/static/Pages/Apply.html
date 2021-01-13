@@ -72,11 +72,11 @@
 <form method="post" th:action="@{/Stu/applyForLeave}">
     <div>
         <label for="Stu_id">Stu_id:</label>
-        <input id="Stu_id" name="stu_id" th:value="${stuId}" disabled>
+        <input id="Stu_id" name="stu_id" th:value="${stuId}" readonly>
     </div>
     <div>
         <label for="leave_date">Leave Date:</label>
-        <input id="leave_date" name="leave_date" type="text">
+        <input id="leave_date" name="leave_date" type="text" placeholder="yyyy-MM-dd">
     </div>
     <div>
         <label for="res">Reason:</label>

@@ -7,6 +7,7 @@ import com.niit_team.student_management.Repository.LeaveInfoRepository;
 import com.niit_team.student_management.Service.LeaveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -29,11 +30,15 @@ public class leaveServiceImpl implements LeaveService {
         return applyRepository.getMyApplies(stu_id);
     }
 
+    @Transactional
     @Override
     public void apply(Apply apply) {
         /*保存请假申请*/
-        applyRepository.save(apply);
+        int stu_id = apply.getStu_id();
+        String leave_date = apply.getLeave_date();
+        String reason = apply.getReason();
+        applyRepository.saveApply(stu_id,leave_date,reason);
         /*修改请假次数信息*/
-//        leaveRepository.updateApplyTime();
+        leaveRepository.updateApplyTime();
     }
 }

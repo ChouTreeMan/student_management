@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 @EnableJpaRepositories
 public interface LeaveInfoRepository extends JpaRepository<LeaveInfo,Integer> {
     /*管理员查询所有学生请假次数信息*/
+    /*新建一个学生时初始化请假次数表*/
     /*修改请假次数*/
     @Query(value = "update leave_info set " +
             "leave_taken=leave_taken+1,leave_balance=leave_balance-1",

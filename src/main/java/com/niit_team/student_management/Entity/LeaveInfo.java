@@ -6,13 +6,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "LeaveInfo")
+@Table(name = "Leave_Info")
 public class LeaveInfo {
 
     @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "stu_id")
-    private Long stu_id;
+    private int stu_id;
     /*管理可查阅的*/
     @Column(name = "leave_taken")
     private int leave_taken;
@@ -23,17 +23,17 @@ public class LeaveInfo {
 
     public LeaveInfo(){}
 
-    public LeaveInfo(Long stu_id, int leave_taken, int leave_balance) {
+    public LeaveInfo(int stu_id, int leave_taken, int leave_balance) {
         this.stu_id = stu_id;
         this.leave_taken = leave_taken;
         this.leave_balance = leave_balance;
     }
 
-    public Long getStu_id() {
+    public int getStu_id() {
         return stu_id;
     }
 
-    public void setStu_id(Long stu_id) {
+    public void setStu_id(int stu_id) {
         this.stu_id = stu_id;
     }
 

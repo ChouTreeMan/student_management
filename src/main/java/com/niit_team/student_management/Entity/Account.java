@@ -7,9 +7,11 @@ import javax.persistence.*;
 public class Account {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "login_id")
-    private String login_id;    //学生姓名登录，与学生信息表的name对应
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "account_id")
+    private int account_id;
+    @Column(name = "login_name")
+    private String login_name;    //学生姓名登录，与学生信息表的name对应
     @Column(name = "login_password")
     private String password;
     @Column(name = "account_type")
@@ -17,18 +19,26 @@ public class Account {
 
     public Account(){}
 
-    public Account(String login_id, String password, String role) {
-        this.login_id = login_id;
+    public Account(String login_name, String password, String role) {
+        this.login_name = login_name;
         this.password = password;
         this.role = role;
     }
 
-    public String getLogin_id() {
-        return login_id;
+    public int getAccount_id() {
+        return account_id;
     }
 
-    public void setLogin_id(String id) {
-        this.login_id = id;
+    public void setAccount_id(int account_id) {
+        this.account_id = account_id;
+    }
+
+    public String getLogin_name() {
+        return login_name;
+    }
+
+    public void setLogin_name(String id) {
+        this.login_name = id;
     }
 
     public String getPassword() {
@@ -50,9 +60,10 @@ public class Account {
     @Override
     public String toString() {
         return "Account{" +
-                "login_id:'" + login_id + '\'' +
+                "account_id:" + account_id +
+                ", login_name:'" + login_name + '\'' +
                 ", password:'" + password + '\'' +
-                ", accountType:'" + role + '\'' +
+                ", role:'" + role + '\'' +
                 '}';
     }
 }
