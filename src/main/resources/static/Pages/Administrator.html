@@ -6,14 +6,17 @@
 </head>
 <body>
 
-<a th:href="@{/Admin/student_details}"><button>显示所有学生信息</button></a><br>
-<a th:href="@{/Admin/addDetail}"><button>添加学生基本信息</button></a><br>
-<a th:href="@{/Admin/leave_info}"><button>显示所有请假申请情况</button></a>
+<a th:href="@{/Admin/student_details}"><button>显示所有学生信息</button></a>
+<a th:href="@{/Admin/addDetail}"><button>添加学生基本信息</button></a>
+<a th:href="@{/Admin/leave_info}" style="float:right"><button>显示所有请假申请情况</button></a>
 
 <br><br>
 <div>
-    <table border="1px"  cellspacing="0px" th:if="${studentList!=null}">
-        <caption><h3>Student Info List</h3></caption>
+    <table border="1px"  cellspacing="0px" align="center" th:if="${studentList!=null}">
+        <caption>
+            <h3 style=" text-align:center;">
+            Student Info List
+            </h3></caption>
         <tr>
             <th>stu_id</th>
             <th>name</th>
@@ -50,8 +53,11 @@
         </tr>
     </table>
 
-    <table border="1px" cellspacing="0px" th:if="${leaveList!=null}">
-        <caption><h3>请假申请次数列表</h3></caption>
+    <table border="1px" cellspacing="0px" align="center" th:if="${leaveList!=null}">
+        <caption>
+            <h3 style=" text-align:center;">
+                请假申请次数列表
+            </h3></caption>
         <tr>
             <th>Stu_Id</th>
             <th>Leave Taken</th>
