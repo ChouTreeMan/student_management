@@ -53,7 +53,6 @@ public class AdminController {
     /*保存从update页面拿到的数据，并重定向回admin主页面*/
     @RequestMapping("/update")
     public ModelAndView Update(StudentInfo studentInfo, HttpServletRequest req){
-//        System.out.println("in Controller:"+studentInfo);
         adminService.ModifyStuDetails(studentInfo,req);
         return new ModelAndView("redirect:/Admin/student_details");
     }

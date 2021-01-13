@@ -38,7 +38,7 @@ public class loginServiceImpl implements LoginService {
             /*将数据库中账户信息存入request*/
             Account existAccount = loginRepository.getAccountByName(account.getLogin_name());
             req.getSession().setAttribute("Account",existAccount);
-            System.out.println("account from db in login:"+existAccount);
+
             /*当账户类型为学生*/
             if (account.getRole().equals("stu")){
                 /*根据与login_id（登录表）对应的name（学生信息表）获取stu_id*/

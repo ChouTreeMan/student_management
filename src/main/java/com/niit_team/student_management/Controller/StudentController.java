@@ -52,7 +52,6 @@ public class StudentController {
             throw new StuNullPointerException("stuId can not be null");
         }
         int stu_id = (int)req.getSession().getAttribute("stu_id");
-        System.out.println("in getMyLeave:"+stu_id);
         List<Apply> applies = leaveService.getApplyById(stu_id);
         mv.addObject("MyApply",applies);
         return mv;
@@ -70,7 +69,7 @@ public class StudentController {
         mv.addObject("stuId",stu_id);
         return mv;
     }
-    //TODO 提交申请
+
     @PostMapping("/applyForLeave")
     public ModelAndView applyForLeave(Apply apply){
         leaveService.apply(apply);

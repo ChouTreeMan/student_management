@@ -46,7 +46,6 @@ public class LoginController {
                 int stu_id = (int)req.getSession().getAttribute("stu_id");
                 mv.addObject("studentInfo",
                         studentService.viewDetail(stu_id));
-//            System.out.println("stu_id in checkAccount:"+stu_id);
                 mv.setViewName("Students");
             }
         }
